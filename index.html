@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trans-Tok - Nowoczesne Przedsiębiorstwo Transportowe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-color);
+        }
+
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 80px;
+            transition: transform 0.3s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-icon {
+            color: var(--dark-color);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .contact-icon:hover {
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/home/ubuntu/upload/search_images/tr59vrITFyBz.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 100px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-description {
+            margin-top: 20px;
+            font-size: 1.1em;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        .icon {
+            font-size: 30px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .vehicle p {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--dark-color);
+            margin: 10px 0;
+        }
+
+        .testimonial, .job-offer {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .testimonial {
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .vehicle-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .vehicle-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .vehicle-specs {
+            margin-top: 10px;
+        }
+
+        .vehicle-specs p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="#home">
+                    <img src="https://i.imgur.com/euDeVfC.jpeg" alt="Logo Trans-Tok">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Strona Główna</a></li>
+                    <li><a href="#vehicles">Nasza Flota</a></li>
+                    <li><a href="#services">Usługi</a></li>
+                    <li><a href="#about">Firma</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="contact">
+                <a href="#contact" class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2 class="fade-in">Witamy w Trans-Tok</h2>
+            <p class="fade-in hero-description">Trans-Tok to wiodące przedsiębiorstwo transportowe, specjalizujące się w kompleksowych usługach logistycznych na terenie kraju i za granicą. Od 2010 roku budujemy zaufanie klientów, oferując niezawodne i terminowe rozwiązania transportowe. Nasza nowoczesna flota i doświadczony zespół gwarantują najwyższą jakość świadczonych usług, dopasowanych do indywidualnych potrzeb każdego klienta. Z nami Twój ładunek jest zawsze w bezpiecznych rękach.</p>
+            <a href="#contact" class="btn fade-in">Skontaktuj się z nami</a>
+        </div>
+    </section>
+
+    <section id="vehicles" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="fade-in">Nasza Flota</h2>
+            <div class="vehicle-grid">
+                <div class="vehicle-card">
+                    <h3>Ciężarówka MAN TGS</h3>
+                    <img src="https://i.imgur.com/nQd7GOj.jpeg" alt="Ciężarówka MAN">
+                    <div class="vehicle-specs">
+                        <p>Silnik: 440 KM</p>
+                        <p>Typ: Ciężarówka z napędem 6x4</p>
+                        <p>Zastosowanie: Transport długodystansowy</p>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <h3>Ciężarówka Scania R450</h3>
+                    <img src="https://i.imgur.com/Uo6QB5A.jpeg" alt="Ciężarówka Scania">
+                    <div class="vehicle-specs">
+                        <p>Silnik: 450 KM</p>
+                        <p>Typ: Ciężarówka z napędem 6x2</p>
+                        <p>Zastosowanie: Transport międzynarodowy</p>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <h3>Ciężarówka Mercedes-Benz Actros</h3>
+                    <img src="https://i.imgur.com/Ql5z14k.jpeg" alt="Ciężarówka Mercedes">
+                    <div class="vehicle-specs">
+                        <p>Silnik: 420 KM</p>
+                        <p>Typ: Ciężarówka z napędem 4x2</p>
+                        <p>Zastosowanie: Transport ciężkich ładunków</p>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <h3>Ciężarówka Volvo FH</h3>
+                    <img src="https://i.imgur.com/0O0M6kh.jpeg" alt="Ciężarówka Volvo">
+                    <div class="vehicle-specs">
+                        <p>Silnik: 500 KM</p>
+                        <p>Typ: Ciężarówka z napędem 4x2</p>
+                        <p>Zastosowanie: Transport długodystansowy</p>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <h3>Ciężarówka DAF XF</h3>
+                    <img src="https://i.imgur.com/gkMnelZ.jpeg" alt="Ciężarówka DAF">
+                    <div class="vehicle-specs">
+                        <p>Silnik: 460 KM</p>
+                        <p>Typ: Ciężarówka z napędem 4x2</p>
+                        <p>Zastosowanie: Transport międzynarodowy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="fade-in">Nasze Usługi</h2>
+            <div class="card fade-in">
+                <i class="fas fa-truck icon"></i>
+                <h3>Transport Krajowy i Międzynarodowy</h3>
+                <p>Oferujemy transport krajowy i międzynarodowy, dostosowany do indywidualnych potrzeb naszych klientów.</p>
+            </div>
+            <div class="card fade-in">
+                <i class="fas fa-boxes icon"></i>
+                <h3>Spedycja</h3>
+                <p>Kompleksowa obsługa spedycyjna, która pozwala naszym klientom skupić się na rozwoju swojego biznesu.</p>
+            </div>
+            <div class="card fade-in">
+                <i class="fas fa-warehouse icon"></i>
+                <h3>Magazynowanie</h3>
+                <p>Nowoczesne rozwiązania magazynowe, które zapewniają bezpieczeństwo i dostępność towarów.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="fade-in">Referencje</h2>
+            <div class="testimonial fade-in">
+                <p>"Firma Trans-Tok dostarcza usługi na najwyższym poziomie. Zawsze terminowo i profesjonalnie."</p>
+                <p><strong>Jan Kowalski, CEO Firma X</strong></p>
+            </div>
+            <div class="testimonial fade-in">
+                <p>"Dzięki Trans-Tok nasze dostawy są zawsze na czas. Polecam ich usługi każdemu."</p>
+                <p><strong>Anna Nowak, Dyrektor Logistyki Firma Y</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="jobs">
+        <div class="container">
+            <h2 class="fade-in">Oferty Pracy</h2>
+            <div class="job-offer fade-in">
+                <h3>Kierowca Ciężarówki</h3>
+                <p>Poszukujemy doświadczonych kierowców ciężarówek do transportu międzynarodowego.</p>
+                <a href="#contact" class="btn">Aplikuj teraz</a>
+            </div>
+            <div class="job-offer fade-in">
+                <h3>Specjalista ds. Logistyki</h3>
+                <p>Poszukujemy specjalisty ds. logistyki do naszego zespołu w Warszawie.</p>
+                <a href="#contact" class="btn">Aplikuj teraz</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="fade-in">O Firmie</h2>
+            <div class="card fade-in">
+                <p>Firma Trans-Tok działa na rynku od ponad 10 lat, zdobywając zaufanie tysięcy klientów. Nasza misja to dostarczanie najwyższej jakości usług transportowych, które spełniają oczekiwania nawet najbardziej wymagających klientów. Dzięki zaangażowaniu i profesjonalizmowi naszego zespołu, jesteśmy w stanie sprostać każdemu wyzwaniu.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="fade-in">Kontakt</h2>
+            <div class="card fade-in">
+                <p>Skontaktuj się z nami, aby uzyskać więcej informacji na temat naszych usług. Nasz zespół jest do Twojej dyspozycji od poniedziałku do piątku w godzinach 8:00-17:00.</p>
+                <p><i class="fas fa-map-marker-alt"></i> Adres: ul. Transportowa 1, 98-332 Rząśnia</p>
+                <p><i class="fas fa-phone"></i> Telefon: +48 123 456 789</p>
+                <p><i class="fas fa-envelope"></i> Email: kontakt@trans-tok.pl</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Copyright &copy; 2025 Trans-Tok. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+</body>
+</html>
